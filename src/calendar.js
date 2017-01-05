@@ -57,6 +57,9 @@ angular.module('ui.calendar', [])
             var sourceEventsSerialId = 1;
             // @return {String} fingerprint of the source object and its events array
             this.sourceFingerprint = function (source) {
+                if (!source) {
+                  return;
+                }
                 var fp = '' + (source.__id || (source.__id = sourceSerialId++));
                 var events = angular.isObject(source) && source.events;
 
